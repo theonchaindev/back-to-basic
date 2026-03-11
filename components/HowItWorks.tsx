@@ -2,49 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-const steps = [
-  {
-    num: "01",
-    title: "Launch Your Token",
-    desc: "Deploy your contract. Add liquidity. Get your CA ready. The first move is always the same.",
-    cmd: "// Deploy contract → verify → lock LP",
-    color: "text-tg",
-    line: "bg-tg/20",
-  },
-  {
-    num: "02",
-    title: "Add Bots to Your Group",
-    desc: "Drop the Buy Bot and Rose Bot into your Telegram group. Configure alerts. Set your ticker. Test a buy.",
-    cmd: "/start @BuyAlertBot | /start @RoseBot",
-    color: "text-green",
-    line: "bg-green/20",
-  },
-  {
-    num: "03",
-    title: "Post the Call",
-    desc: "Format your call. Pin it. Share the contract address. Give targets. Let the community know it's time.",
-    cmd: "🚀 $BASIC | CA: 0x... | Target: 10x",
-    color: "text-gold",
-    line: "bg-gold/20",
-  },
-  {
-    num: "04",
-    title: "Raid X",
-    desc: "Drop the raid target in the group. Every member hits like, retweet, comment. Make noise. Make it trend.",
-    cmd: "⚡ RAID TARGET: @username/post_id",
-    color: "text-white",
-    line: "bg-white/10",
-  },
-  {
-    num: "05",
-    title: "Watch Rose. Track Everything.",
-    desc: "Monitor price, holders, liquidity in real-time. Every buy broadcasts. The chart tells the story.",
-    cmd: "/price $BASIC → $0.00000205 ↑ 42%",
-    color: "text-tg",
-    line: "bg-tg/20",
-  },
-];
-
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -64,86 +21,67 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" ref={sectionRef} className="py-32 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-white/8 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left — sticky header */}
-          <div className="lg:sticky lg:top-32 reveal">
-            <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 rounded-full px-3 py-1 mb-6">
-              <span className="font-mono text-white/40 text-xs tracking-widest uppercase">
-                The Playbook
-              </span>
-            </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="reveal mb-16">
             <h2 className="font-mono font-bold text-white text-4xl lg:text-5xl tracking-tight mb-6">
-              How It
+              There were no tutorials.
               <br />
-              <span className="text-tg">Always Worked.</span>
+              <span className="text-white/40">You just knew.</span>
             </h2>
-            <p className="text-white/40 text-base leading-relaxed font-sans max-w-sm">
-              Five steps. Same as it ever was. The process hasn&apos;t changed
-              because it works. Simple. Direct. Effective.
+            <p className="text-white/40 text-base leading-loose font-sans">
+              Someone dropped a CA in the chat. You didn&apos;t overthink it.
+              You checked Rose, bought a bag, dropped a rocket emoji, and got back
+              to watching the buy bot. That was the whole process. It worked because
+              the group worked. The people in it understood the assignment.
             </p>
-
-            {/* Terminal mockup */}
-            <div className="mt-10 bg-bg-2 border border-white/8 rounded-xl overflow-hidden">
-              <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                <span className="ml-2 font-mono text-[10px] text-white/20">
-                  telegram — group_alpha
-                </span>
-              </div>
-              <div className="p-4 space-y-2 font-mono text-xs">
-                <div className="text-green">📣 CALL POSTED: $BASIC</div>
-                <div className="text-white/40">Entry: $0.00000165</div>
-                <div className="text-white/40">Target 1: 2x</div>
-                <div className="text-white/40">Target 2: 5x</div>
-                <div className="text-white/40">Target 3: 10x</div>
-                <div className="text-tg mt-2">🤖 BUY BOT ACTIVE</div>
-                <div className="text-tg">🌹 ROSE BOT ACTIVE</div>
-                <div className="text-gold mt-2">⚡ RAID SCHEDULED: 8PM UTC</div>
-                <div className="text-white/20 mt-3 cursor">
-                  waiting for buys_
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Right — steps */}
-          <div className="space-y-4">
-            {steps.map((step, i) => (
+          {/* Pull quotes */}
+          <div className="reveal space-y-px">
+            {[
+              { quote: "The buy bot going off every 30 seconds.", sub: "That was the signal." },
+              { quote: "Rose bot at $80k market cap.", sub: "Still early." },
+              { quote: "Raid hits. 400 comments in an hour.", sub: "Now it's trending." },
+              { quote: "Chart goes vertical.", sub: "You were there from the start." },
+            ].map((item, i) => (
               <div
-                key={step.num}
-                className="reveal bg-bg-2 border border-white/8 hover:border-white/15 rounded-xl p-5 transition-all duration-300 group"
-                style={{ transitionDelay: `${i * 0.08}s` }}
+                key={i}
+                className="group border border-white/5 hover:border-white/10 bg-bg-2/50 hover:bg-bg-2 rounded-lg px-6 py-5 text-left transition-all duration-200"
               >
-                <div className="flex items-start gap-4">
-                  {/* Number */}
-                  <div
-                    className={`font-mono font-bold text-2xl ${step.color} opacity-40 group-hover:opacity-70 transition-opacity flex-shrink-0 w-8`}
-                  >
-                    {step.num}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-mono font-bold text-white text-base mb-1.5">
-                      {step.title}
-                    </h3>
-                    <p className="text-white/40 text-sm font-sans leading-relaxed mb-3">
-                      {step.desc}
-                    </p>
-                    <div className="bg-bg border border-white/5 rounded-lg px-3 py-2">
-                      <code className={`font-mono text-xs ${step.color}`}>
-                        {step.cmd}
-                      </code>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-mono text-white/60 group-hover:text-white/80 text-sm transition-colors">
+                    {item.quote}
+                  </p>
+                  <p className="font-mono text-tg text-xs flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity">
+                    {item.sub}
+                  </p>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom line */}
+          <div className="reveal mt-16 pt-16 border-t border-white/5">
+            <p className="font-mono text-white/25 text-sm uppercase tracking-widest">
+              That group still exists.
+            </p>
+            <p className="font-mono text-white font-bold text-2xl mt-2 mb-8">
+              It&apos;s called Back to Basic.
+            </p>
+            <a
+              href="https://t.me/backtobasic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-tg hover:bg-tg-dark text-white font-mono font-bold text-sm tracking-wider uppercase px-7 py-3.5 rounded transition-all duration-200 hover:shadow-xl hover:shadow-tg/25 hover:-translate-y-0.5"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+              </svg>
+              Join the Group
+            </a>
           </div>
         </div>
       </div>
